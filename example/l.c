@@ -27,8 +27,8 @@ void listing(char *dir)
   }
   else
   {
-    setsgr(1, SGR_PARAM_FORE_RED);
-    fprintf(stderr, "'%s' could not be listed.", dir);
+    setsgr(2, SGR_PARAM_BOLD, SGR_PARAM_FORE_RED);
+    fprintf(stderr, "  '%s' could not be listed.", dir);
     sgrreset();
     putchar('\n');
   }
