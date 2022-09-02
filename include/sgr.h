@@ -7,6 +7,10 @@
  * @brief Header for escape sequences for graphical changes based on Select
  * Graphic Rendition codes from the ECMA-48 standard with some nonstandard
  * additions for modern terminals.
+ * @todo
+ *  - convience print functions that call reset before printing newline
+ *  - macro support for 8-bit and 24-bit color
+ *  - maybe support for ITU T.416 with colon seperator
  */
 
 #include <stdarg.h>
@@ -41,7 +45,7 @@ extern "C"
 #define SGR_PARAM_ALTERNATE_FONT_8                18
 #define SGR_PARAM_ALTERNATE_FONT_9                19
 #define SGR_PARAM_FRAKTUR_FONT                    20
-#define SGR_PARAM_UNDERLINED_DOUBLE                21
+#define SGR_PARAM_UNDERLINED_DOUBLE               21
 #define SGR_PARAM_NORMAL_INTENSITY                22
 #define SGR_PARAM_NOT_ITALIC                      23
 #define SGR_PARAM_NOT_FRAKTUR_FONT                23
@@ -80,8 +84,8 @@ extern "C"
 #define SGR_PARAM_NOT_FRAMED                      54
 #define SGR_PARAM_NOT_ENCIRCLED                   54
 #define SGR_PARAM_NOT_OVERLINED                   55
-#define SGR_PARAM_UNDERLINED_SET_COLOR             58
-#define SGR_PARAM_UNDERLINED_DEFAULT_COLOR         59
+#define SGR_PARAM_UNDERLINED_SET_COLOR            58
+#define SGR_PARAM_UNDERLINED_DEFAULT_COLOR        59
 #define SGR_PARAM_IDEOGRAM_UNDERLINED             60
 #define SGR_PARAM_IDEOGRAM_RIGHT_LINED            60
 #define SGR_PARAM_IDEOGRAM_UNDERLINED_DOUBLE      61

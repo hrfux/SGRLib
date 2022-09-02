@@ -21,7 +21,7 @@ extern "C"
 #endif
 
   /**
-   * @brief Sets SGR via the `ESC` + `[` CSI.
+   * @brief Sets SGR via CSI.
    * @param count Number of escape sequence parameter codes.
    * @param ... Escape sequence parameter codes.
    */
@@ -46,7 +46,7 @@ extern "C"
   }
 
   /**
-   * @brief Sets SGR via the `ESC` + `[` CSI with output to file stream.
+   * @brief Sets SGR via CSI with output to file stream.
    * @param file File for output.
    * @param count Number of escape sequence parameter codes.
    * @param ... Escape sequence parameter codes.
