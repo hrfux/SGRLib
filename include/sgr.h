@@ -11,6 +11,7 @@
  *  - convience print functions that call reset before printing newline
  *  - macro support for 8-bit and 24-bit color
  *  - maybe support for ITU T.416 with colon seperator
+ *  - string macros for printing
  */
 
 #include <stdarg.h>
