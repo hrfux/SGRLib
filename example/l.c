@@ -17,7 +17,7 @@ void listing(char *dir)
     {
       setsgr(2, SGR_PARAM_BOLD, sgrn(FORE_BRIGHT_BLUE));
       printf("  %s", entry->d_name);
-      sgrreset();
+      resetsgr();
       putchar('\n');
       count++;
     }
@@ -29,7 +29,7 @@ void listing(char *dir)
   {
     setsgr(2, SGR_PARAM_BOLD, SGR_PARAM_FORE_RED);
     fprintf(stderr, "  '%s' could not be listed.", dir);
-    sgrreset();
+    resetsgr();
     putchar('\n');
   }
 

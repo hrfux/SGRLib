@@ -32,8 +32,7 @@ extern "C"
 
     va_start(args, count);
 
-    putchar('\x1B');
-    putchar('[');
+    printf(SGR_PARAM_ECMA_CSI);
 
     for (iter = 0; iter < count; iter++)
     {
@@ -58,8 +57,7 @@ extern "C"
 
     va_start(args, count);
 
-    fputc('\x1B', file);
-    fputc('[', file);
+    fprintf(file, SGR_PARAM_ECMA_CSI);
 
     for (iter = 0; iter < count; iter++)
     {
