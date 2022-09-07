@@ -2,7 +2,7 @@
  * @file sgr.c
  * @date 2022-09-02
  * @author Steven-L. Fuchs (stevenfuchs@live.de)
- * @version 1.0
+ * @version 1.1
  * @copyright Copyright (c) 2022 Steven-L. Fuchs
  * @brief Implementation of SGR library functions.
  */

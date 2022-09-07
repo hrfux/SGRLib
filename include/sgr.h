@@ -2,7 +2,7 @@
  * @file sgr.h
  * @date 2022-09-01
  * @author Steven-L. Fuchs (stevenfuchs@live.de)
- * @version 1.0
+ * @version 1.1
  * @copyright Copyright (c) 2022 Steven-L. Fuchs
  * @brief Header for escape sequences for graphical changes based on Select
  * Graphic Rendition codes from the ECMA-48 standard with some nonstandard
