@@ -256,7 +256,7 @@ extern "C"
 /** Specifies SGR library version. */
 #define SGR_LIBVER 20
 
-/** Specifies which character to use as seperator. May be overwritten. */
+/** Specifies which character to use as separator. May be overwritten. */
 #define SGR_SEPARATOR ';'
 
   /**
