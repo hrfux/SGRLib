@@ -314,7 +314,7 @@ extern "C"
   extern void sgr_fprintfn(FILE *file, char *sgr, char *format, ...);
 
   /** Discrete boolean type for ANSI C. */
-  typedef enum _BOOl
+  typedef enum _BOOL
   {
     FALSE = 0,
     TRUE  = 1
