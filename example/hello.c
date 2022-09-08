@@ -13,6 +13,9 @@ int main(void)
   resetsgr();
   putchar('\n');
 
+  printf("%sAnother Text.", SGR_FORE_GREEN);
+  resetsgr();
+
   /* with ease of use of functions */
 
   /* use new functions here ... */

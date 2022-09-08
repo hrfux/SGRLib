@@ -2,15 +2,13 @@
  * @file sgr.h
  * @date 2022-09-01
  * @author Steven-L. Fuchs (stevenfuchs@live.de)
- * @version 1.1
+ * @version 2.0
  * @copyright Copyright (c) 2022 Steven-L. Fuchs
  * @brief Header for escape sequences for graphical changes based on Select
  * Graphic Rendition codes from the ECMA-48 standard with some nonstandard
  * additions for modern terminals.
  * @todo
  *  - convience print functions that call reset before printing newline
- *  - maybe support for ITU T.416 with colon seperator
- *  - string macros for printing
  */
 
 #include <stdarg.h>
@@ -152,6 +150,102 @@ extern "C"
 #define SGR_PARAM_NONSTANDARD_8BIT_BRIGHT_CYAN    14
 #define SGR_PARAM_NONSTANDARD_8BIT_BRIGHT_WHITE   15
 
+  /* Standalone string macros */
+
+#define SGR_RESET                           "\x1B[0m"
+#define SGR_BOLD                            "\x1B[1m"
+#define SGR_DIM                             "\x1B[2m"
+#define SGR_ITALIC                          "\x1B[3m"
+#define SGR_UNDERLINED                      "\x1B[4m"
+#define SGR_BLINKING_SLOW                   "\x1B[5m"
+#define SGR_BLANK_FAST                      "\x1B[6m"
+#define SGR_INVERTED                        "\x1B[7m"
+#define SGR_CONCEALED                       "\x1B[8m"
+#define SGR_CROSSED_OUT                     "\x1B[9m"
+#define SGR_DEFAULT_FONT                    "\x1B[10m"
+#define SGR_ALTERNATE_FONT_1                "\x1B[11m"
+#define SGR_ALTERNATE_FONT_2                "\x1B[12m"
+#define SGR_ALTERNATE_FONT_3                "\x1B[13m"
+#define SGR_ALTERNATE_FONT_4                "\x1B[14m"
+#define SGR_ALTERNATE_FONT_5                "\x1B[15m"
+#define SGR_ALTERNATE_FONT_6                "\x1B[16m"
+#define SGR_ALTERNATE_FONT_7                "\x1B[17m"
+#define SGR_ALTERNATE_FONT_8                "\x1B[18m"
+#define SGR_ALTERNATE_FONT_9                "\x1B[19m"
+#define SGR_FRAKTUR_FONT                    "\x1B[20m"
+#define SGR_UNDERLINED_DOUBLE               "\x1B[21m"
+#define SGR_NORMAL_INTENSITY                "\x1B[22m"
+#define SGR_NOT_ITALIC                      "\x1B[23m"
+#define SGR_NOT_FRAKTUR_FONT                "\x1B[23m"
+#define SGR_NOT_UNDERLINED                  "\x1B[24m"
+#define SGR_STEADY                          "\x1B[25m"
+#define SGR_NOT_BLINKING                    "\x1B[25m"
+#define SGR_PROPORTIONAL_SPACING            "\x1B[26m"
+#define SGR_NOT_INVERTED                    "\x1B[27m"
+#define SGR_NOT_CONCEALED                   "\x1B[28m"
+#define SGR_REVEAL                          "\x1B[28m"
+#define SGR_NOT_CROSSED_OUT                 "\x1B[29m"
+#define SGR_FORE_BLACK                      "\x1B[30m"
+#define SGR_FORE_RED                        "\x1B[31m"
+#define SGR_FORE_GREEN                      "\x1B[32m"
+#define SGR_FORE_YELLOW                     "\x1B[33m"
+#define SGR_FORE_BLUE                       "\x1B[34m"
+#define SGR_FORE_MAGENTA                    "\x1B[35m"
+#define SGR_FORE_CYAN                       "\x1B[36m"
+#define SGR_FORE_WHITE                      "\x1B[37m"
+#define SGR_FORE_SET_COLOR                  "\x1B[38m"
+#define SGR_FORE_DEFAULT_COLOR              "\x1B[39m"
+#define SGR_BACK_BLACK                      "\x1B[40m"
+#define SGR_BACK_RED                        "\x1B[41m"
+#define SGR_BACK_GREEN                      "\x1B[42m"
+#define SGR_BACK_YELLOW                     "\x1B[43m"
+#define SGR_BACK_BLUE                       "\x1B[44m"
+#define SGR_BACK_MAGENTA                    "\x1B[45m"
+#define SGR_BACK_CYAN                       "\x1B[46m"
+#define SGR_BACK_WHITE                      "\x1B[47m"
+#define SGR_BACK_SET_COLOR                  "\x1B[48m"
+#define SGR_BACK_DEFAULT_COLOR              "\x1B[49m"
+#define SGR_NOT_PROPORTIONAL_SPACING        "\x1B[50m"
+#define SGR_FRAMED                          "\x1B[51m"
+#define SGR_ENCIRCLED                       "\x1B[52m"
+#define SGR_OVERLINED                       "\x1B[53m"
+#define SGR_NOT_FRAMED                      "\x1B[54m"
+#define SGR_NOT_ENCIRCLED                   "\x1B[54m"
+#define SGR_NOT_OVERLINED                   "\x1B[55m"
+#define SGR_UNDERLINED_SET_COLOR            "\x1B[58m"
+#define SGR_UNDERLINED_DEFAULT_COLOR        "\x1B[59m"
+#define SGR_IDEOGRAM_UNDERLINED             "\x1B[60m"
+#define SGR_IDEOGRAM_RIGHT_LINED            "\x1B[60m"
+#define SGR_IDEOGRAM_UNDERLINED_DOUBLE      "\x1B[61m"
+#define SGR_IDEOGRAM_RIGHT_LINED_DOUBLE     "\x1B[61m"
+#define SGR_IDEOGRAM_OVERLINED              "\x1B[62m"
+#define SGR_IDEOGRAM_LEFT_LINED             "\x1B[62m"
+#define SGR_IDEOGRAM_OVERLINED_DOUBLE       "\x1B[63m"
+#define SGR_IDEOGRAM_LEFT_LINED_DOUBLE      "\x1B[63m"
+#define SGR_IDEOGRAM_STRESS_MARKING         "\x1B[64m"
+#define SGR_IDEOGRAM_RESET                  "\x1B[65m"
+#define SGR_NONSTANDARD_SUPERSCRIPT         "\x1B[73m"
+#define SGR_NONSTANDARD_SUBSCRIPT           "\x1B[74m"
+#define SGR_NONSTANDARD_NOT_SUPERSCRIPT     "\x1B[75m"
+#define SGR_NONSTANDARD_NOT_SUBSCRIPT       "\x1B[75m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_BLACK   "\x1B[90m"
+#define SGR_NONSTANDARD_FORE_GREY           "\x1B[90m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_RED     "\x1B[91m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_GREEN   "\x1B[92m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_YELLOW  "\x1B[93m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_BLUE    "\x1B[94m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_MAGENTA "\x1B[95m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_CYAN    "\x1B[96m"
+#define SGR_NONSTANDARD_FORE_BRIGHT_WHITE   "\x1B[97m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_BLACK   "\x1B[100m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_RED     "\x1B[101m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_GREEN   "\x1B[102m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_YELLOW  "\x1B[103m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_BLUE    "\x1B[104m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_MAGENTA "\x1B[105m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_CYAN    "\x1B[106m"
+#define SGR_NONSTANDARD_BACK_BRIGHT_WHITE   "\x1B[107m"
+
 /** Provides shorter macros via concat for standard parameter codes. */
 #define sgr(short) SGR_PARAM_##short
 
@@ -161,8 +255,14 @@ extern "C"
 /** Outputs reset code. */
 #define resetsgr() printf("\x1B[0m")
 
-  void setsgr(int count, ...);
-  void fsetsgr(FILE *file, int count, ...);
+/** Specifies SGR library version. */
+#define SGR_LIBVER 20
+
+/** Specifies which character to use as seperator. May be overwritten. */
+#define SGR_SEPERATOR ';'
+
+  extern void setsgr(int count, ...);
+  extern void fsetsgr(FILE *file, int count, ...);
 
 #endif
 

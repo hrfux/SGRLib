@@ -2,7 +2,7 @@
  * @file sgr.c
  * @date 2022-09-02
  * @author Steven-L. Fuchs (stevenfuchs@live.de)
- * @version 1.1
+ * @version 2.0
  * @copyright Copyright (c) 2022 Steven-L. Fuchs
  * @brief Implementation of SGR library functions.
  */
@@ -37,7 +37,7 @@ extern "C"
     for (iter = 0; iter < count; iter++)
     {
       printf("%d", va_arg(args, int));
-      if (iter != count - 1) putchar(';');
+      if (iter != count - 1) putchar(SGR_SEPERATOR);
     }
 
     putchar('m');
@@ -62,7 +62,7 @@ extern "C"
     for (iter = 0; iter < count; iter++)
     {
       fprintf(file, "%d", va_arg(args, int));
-      if (iter != count - 1) fputc(';', file);
+      if (iter != count - 1) fputc(SGR_SEPERATOR, file);
     }
 
     fputc('m', file);
