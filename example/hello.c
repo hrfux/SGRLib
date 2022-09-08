@@ -5,16 +5,16 @@ int main(void)
 {
   /* without ease of use functions */
 
-  setsgr(3, sgr(CROSSED_OUT), sgr(FORE_BLUE), sgr(BACK_WHITE));
+  sgr_set(3, sgr(CROSSED_OUT), sgr(FORE_BLUE), sgr(BACK_WHITE));
   printf("Hello, world!");
-  resetsgr();
-  setsgr(3, sgr(FORE_SET_COLOR), sgrn(8BIT_ARGUMENT), sgrn(8BIT_BRIGHT_BLUE));
+  sgr_reset();
+  sgr_set(3, sgr(FORE_SET_COLOR), sgrn(8BIT_ARGUMENT), sgrn(8BIT_BRIGHT_BLUE));
   printf(" And again!");
-  resetsgr();
+  sgr_reset();
   putchar('\n');
 
   printf("%sAnother Text.", SGR_FORE_GREEN);
-  resetsgr();
+  sgr_reset();
 
   /* with ease of use of functions */
 

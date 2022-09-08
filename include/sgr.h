@@ -253,7 +253,7 @@ extern "C"
 #define sgrn(short) SGR_PARAM_NONSTANDARD_##short
 
 /** Outputs reset code. */
-#define resetsgr() printf("\x1B[0m")
+#define sgr_reset() printf("\x1B[0m")
 
 /** Specifies SGR library version. */
 #define SGR_LIBVER 20
@@ -261,8 +261,8 @@ extern "C"
 /** Specifies which character to use as seperator. May be overwritten. */
 #define SGR_SEPERATOR ';'
 
-  extern void setsgr(int count, ...);
-  extern void fsetsgr(FILE *file, int count, ...);
+  extern void sgr_set(int count, ...);
+  extern void sgr_fset(FILE *file, int count, ...);
 
 #endif
 

@@ -15,9 +15,9 @@ void listing(char *dir)
   {
     while ((entry = readdir(dir_ptr)))
     {
-      setsgr(2, SGR_PARAM_BOLD, sgrn(FORE_BRIGHT_BLUE));
+      sgr_set(2, SGR_PARAM_BOLD, sgrn(FORE_BRIGHT_BLUE));
       printf("  %s", entry->d_name);
-      resetsgr();
+      sgr_reset();
       putchar('\n');
       count++;
     }
@@ -27,9 +27,9 @@ void listing(char *dir)
   }
   else
   {
-    setsgr(2, SGR_PARAM_BOLD, SGR_PARAM_FORE_RED);
+    sgr_set(2, SGR_PARAM_BOLD, SGR_PARAM_FORE_RED);
     fprintf(stderr, "  '%s' could not be listed.", dir);
-    resetsgr();
+    sgr_reset();
     putchar('\n');
   }
 

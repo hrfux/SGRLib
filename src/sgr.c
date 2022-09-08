@@ -25,7 +25,7 @@ extern "C"
    * @param count Number of escape sequence parameter codes.
    * @param ... Escape sequence parameter codes.
    */
-  void setsgr(int count, ...)
+  void sgr_set(int count, ...)
   {
     va_list args;
     int     iter;
@@ -50,7 +50,7 @@ extern "C"
    * @param count Number of escape sequence parameter codes.
    * @param ... Escape sequence parameter codes.
    */
-  void fsetsgr(FILE *file, int count, ...)
+  void sgr_fset(FILE *file, int count, ...)
   {
     va_list args;
     int     iter;
