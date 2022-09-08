@@ -20,11 +20,6 @@ extern "C"
 {
 #endif
 
-  /**
-   * @brief Sets SGR via CSI.
-   * @param count Number of escape sequence parameter codes.
-   * @param ... Escape sequence parameter codes.
-   */
   void sgr_set(int count, ...)
   {
     va_list args;
@@ -44,12 +39,6 @@ extern "C"
     va_end(args);
   }
 
-  /**
-   * @brief Sets SGR via CSI with output to file stream.
-   * @param file File for output.
-   * @param count Number of escape sequence parameter codes.
-   * @param ... Escape sequence parameter codes.
-   */
   void sgr_fset(FILE *file, int count, ...)
   {
     va_list args;
@@ -66,6 +55,58 @@ extern "C"
     }
 
     fputc('m', file);
+    va_end(args);
+  }
+
+  /**
+   * @brief Discrete printing function used to avoid boilerplate.
+   * @param file File for output.
+   * @param newline Bool for whether to output newline or not.
+   * @param sgr Escape sequence as string. (e.g. standalone macro)
+   * @param format Format to be printed.
+   * @param args Arguments for format.
+   */
+  static void _sgr_fprintf(FILE   *file,
+                           _bool_t newline,
+                           char   *sgr,
+                           char   *format,
+                           va_list args)
+  {
+    printf(sgr);
+    vfprintf(file, format, args);
+    sgr_reset();
+    if (newline) putchar('\n');
+  }
+
+  void sgr_printf(char *sgr, char *format, ...)
+  {
+    va_list args;
+    va_start(args, format);
+    _sgr_fprintf(stdout, FALSE, sgr, format, args);
+    va_end(args);
+  }
+
+  void sgr_printfn(char *sgr, char *format, ...)
+  {
+    va_list args;
+    va_start(args, format);
+    _sgr_fprintf(stdout, TRUE, sgr, format, args);
+    va_end(args);
+  }
+
+  void sgr_fprintf(FILE *file, char *sgr, char *format, ...)
+  {
+    va_list args;
+    va_start(args, format);
+    _sgr_fprintf(file, FALSE, sgr, format, args);
+    va_end(args);
+  }
+
+  void sgr_fprintfn(FILE *file, char *sgr, char *format, ...)
+  {
+    va_list args;
+    va_start(args, format);
+    _sgr_fprintf(file, TRUE, sgr, format, args);
     va_end(args);
   }
 

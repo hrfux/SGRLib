@@ -7,8 +7,6 @@
  * @brief Header for escape sequences for graphical changes based on Select
  * Graphic Rendition codes from the ECMA-48 standard with some nonstandard
  * additions for modern terminals.
- * @todo
- *  - convience print functions that call reset before printing newline
  */
 
 #include <stdarg.h>
@@ -261,8 +259,66 @@ extern "C"
 /** Specifies which character to use as seperator. May be overwritten. */
 #define SGR_SEPERATOR ';'
 
+  /**
+   * @brief Sets SGR via CSI.
+   * @param count Number of escape sequence parameter codes.
+   * @param ... Escape sequence parameter codes.
+   */
   extern void sgr_set(int count, ...);
+
+  /**
+   * @brief Sets SGR via CSI with output to file stream.
+   * @param file File for output.
+   * @param count Number of escape sequence parameter codes.
+   * @param ... Escape sequence parameter codes.
+   */
   extern void sgr_fset(FILE *file, int count, ...);
+
+  /**
+   * @brief Prints the given format with an escape sequence string at the
+   * beginning.
+   * @param sgr Escape sequence as string. (e.g. standalone macro)
+   * @param format Format to be printed.
+   * @param ... Arguments for format.
+   */
+  extern void sgr_printf(char *sgr, char *format, ...);
+
+  /**
+   * @brief Prints the given format with an escape sequence string at the
+   * beginning and a clean newline without styling at the end.
+   * @param sgr Escape sequence as string. (e.g. standalone macro)
+   * @param format Format to be printed.
+   * @param ... Arguments for format.
+   */
+  extern void sgr_printfn(char *sgr, char *format, ...);
+
+  /**
+   * @brief Prints the given format with an escape sequence string at the
+   * beginning into a specified file.
+   * @param file File for output.
+   * @param sgr Escape sequence as string. (e.g. standalone macro)
+   * @param format Format to be printed.
+   * @param ... Arguments for format.
+   */
+  extern void sgr_fprintf(FILE *file, char *sgr, char *format, ...);
+
+  /**
+   * @brief Prints the given format with an escape sequence string at the
+   * beginning and a clean newline without styling at the end into a specified
+   * file.
+   * @param file File for output.
+   * @param sgr Escape sequence as string. (e.g. standalone macro)
+   * @param format Format to be printed.
+   * @param ... Arguments for format.
+   */
+  extern void sgr_fprintfn(FILE *file, char *sgr, char *format, ...);
+
+  /** Discrete boolean type for ANSI C. */
+  typedef enum _BOOl
+  {
+    FALSE = 0,
+    TRUE  = 1
+  } _bool_t;
 
 #endif
 
