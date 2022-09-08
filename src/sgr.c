@@ -32,7 +32,7 @@ extern "C"
     for (iter = 0; iter < count; iter++)
     {
       printf("%d", va_arg(args, int));
-      if (iter != count - 1) putchar(SGR_SEPERATOR);
+      if (iter != count - 1) putchar(SGR_SEPARATOR);
     }
 
     putchar('m');
@@ -51,7 +51,7 @@ extern "C"
     for (iter = 0; iter < count; iter++)
     {
       fprintf(file, "%d", va_arg(args, int));
-      if (iter != count - 1) fputc(SGR_SEPERATOR, file);
+      if (iter != count - 1) fputc(SGR_SEPARATOR, file);
     }
 
     fputc('m', file);

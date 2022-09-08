@@ -257,7 +257,7 @@ extern "C"
 #define SGR_LIBVER 20
 
 /** Specifies which character to use as seperator. May be overwritten. */
-#define SGR_SEPERATOR ';'
+#define SGR_SEPARATOR ';'
 
   /**
    * @brief Sets SGR via CSI.
