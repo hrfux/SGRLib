@@ -1,7 +1,7 @@
+#include "sgr.h"
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "sgr.h"
 
 void listing(char *dir)
 {
@@ -15,10 +15,7 @@ void listing(char *dir)
   {
     while ((entry = readdir(dir_ptr)))
     {
-      sgr_set(2, SGR_PARAM_BOLD, sgrn(FORE_BRIGHT_BLUE));
-      printf("  %s", entry->d_name);
-      sgr_reset();
-      putchar('\n');
+      sgr_printfn(SGR_NONSTANDARD_FORE_BRIGHT_BLUE, "  %s", entry->d_name);
       count++;
     }
 
@@ -27,10 +24,7 @@ void listing(char *dir)
   }
   else
   {
-    sgr_set(2, SGR_PARAM_BOLD, SGR_PARAM_FORE_RED);
-    fprintf(stderr, "  '%s' could not be listed.", dir);
-    sgr_reset();
-    putchar('\n');
+    sgr_fprintfn(stderr, SGR_FORE_RED, "  '%s' could not be listed.", dir);
   }
 
   putchar('\n');
